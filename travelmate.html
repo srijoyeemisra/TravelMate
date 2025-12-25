@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>TravelMate Profiles</title>
+<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="travelmate.css">
+</head>
+
+<body class="page-travelmate">
+  <!-- Floating hearts -->
+  <div class="hearts-container"></div>
+
+  <header class="site-header">
+    <div class="logo">TravelMate</div>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="travelmate.html">TravelMate</a>
+      <a href="planner.html">Planner</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="profiles-content">
+    <section class="intro">
+      <h1>Meet Our TravelMates</h1>
+      <p>Discover experienced guides and local experts to make your journey unforgettable.  
+      From city tours to hidden gems, our TravelMates are ready to help you explore safely and smartly.</p>
+    </section>
+
+    <section class="profiles-grid">
+      <article class="profile-card">
+        <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg" alt="Rohit Das">
+        <div class="p-body">
+          <h3>Rohit Das</h3>
+          <p class="role">Local Guide • Kolkata</p>
+          <p class="bio">Photography enthusiast. Loves food routes and heritage walks.</p>
+          <div class="tags"><span>Guide</span><span>Driver</span></div>
+        </div>
+      </article>
+
+      <article class="profile-card">
+        <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg" alt="Priya Sharma">
+        <div class="p-body">
+          <h3>Priya Sharma</h3>
+          <p class="role">Travel Advisor • Jaipur</p>
+          <p class="bio">History buff and storyteller. Helps plan cultural trips with fun insights.</p>
+          <div class="tags"><span>Advisor</span><span>Guide</span></div>
+        </div>
+      </article>
+
+      <article class="profile-card">
+        <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg" alt="Amit Verma">
+        <div class="p-body">
+          <h3>Amit Verma</h3>
+          <p class="role">Local Guide • Mumbai</p>
+          <p class="bio">Street food lover. Expert in urban walking tours and night life experiences.</p>
+          <div class="tags"><span>Guide</span><span>Food Tour</span></div>
+        </div>
+      </article>
+
+      <article class="profile-card">
+        <img src="https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg" alt="Neha Kapoor">
+        <div class="p-body">
+          <h3>Neha Kapoor</h3>
+          <p class="role">Adventure Guide • Manali</p>
+          <p class="bio">Mountain trekker and adventure lover. Loves offbeat trails and scenic hikes.</p>
+          <div class="tags"><span>Adventure</span><span>Guide</span></div>
+        </div>
+      </article>
+
+      <!-- Duplicate similar cards to have more profiles -->
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    © <span id="year"></span> TravelMate
+  </footer>
+
+  <script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Floating hearts
+  document.addEventListener("DOMContentLoaded", () => {
+    const heartsContainer = document.querySelector('.hearts-container');
+    const colors = ['💗','💜','💙','💚','💛','🩵','🩷'];
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = colors[Math.floor(Math.random() * colors.length)];
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (18 + Math.random() * 18) + 'px';
+      heart.style.animationDuration = (4 + Math.random() * 3) + 's';
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 8000);
+    }
+    setInterval(createHeart, 400);
+  });
+  </script>
+</body>
+</html>
