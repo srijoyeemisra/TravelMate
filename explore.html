@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Explore — TravelMate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="explore.css">
+</head>
+
+<body class="page-explore">
+  <!-- Floating hearts (same as home) -->
+  <div class="hearts-container"></div>
+
+  <header class="site-header">
+    <div class="logo">TravelMate</div>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="travelmate.html">TravelMate</a>
+      <a href="planner.html">Planner</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="explore-content">
+    <section class="intro">
+      <h1>Discover the World</h1>
+      <p>Find your next adventure — from hidden mountain trails to bustling cities.  
+      Explore handpicked destinations to plan your dream trip effortlessly.</p>
+    </section>
+
+    <section class="places-grid">
+      <article class="place-card">
+        <img src="https://images.pexels.com/photos/346885/pexels-photo-346885.jpeg" alt="Paris">
+        <div class="place-body">
+          <h3>Paris, France</h3>
+          <p>The city of lights, art, and romance. Visit the Eiffel Tower and enjoy croissants by the Seine.</p>
+          <div class="meta">Europe • 5 days suggested</div>
+        </div>
+      </article>
+
+      <article class="place-card">
+        <img src="https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg" alt="Bali">
+        <div class="place-body">
+          <h3>Bali, Indonesia</h3>
+          <p>Pristine beaches, tropical forests, and tranquil temples — a paradise for soul seekers.</p>
+          <div class="meta">Asia • 7 days suggested</div>
+        </div>
+      </article>
+
+      <article class="place-card">
+        <img src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg" alt="New York">
+        <div class="place-body">
+          <h3>New York, USA</h3>
+          <p>The city that never sleeps — from Times Square to Central Park, it’s full of life and lights.</p>
+          <div class="meta">North America • 4 days suggested</div>
+        </div>
+      </article>
+
+      <article class="place-card">
+        <img src="https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg" alt="Santorini">
+        <div class="place-body">
+          <h3>Santorini, Greece</h3>
+          <p>Whitewashed villages overlooking blue seas — the perfect sunset destination.</p>
+          <div class="meta">Europe • 3 days suggested</div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    © <span id="year"></span> TravelMate
+  </footer>
+
+  <script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Floating hearts (same as home)
+  document.addEventListener("DOMContentLoaded", () => {
+    const heartsContainer = document.querySelector('.hearts-container');
+    const colors = ['💗','💜','💙','💚','💛','❤','💙'];
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = colors[Math.floor(Math.random() * colors.length)];
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (18 + Math.random() * 18) + 'px';
+      heart.style.animationDuration = (4 + Math.random() * 3) + 's';
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 8000);
+    }
+    setInterval(createHeart, 400);
+  });
+  </script>
+</body>
+</html>
