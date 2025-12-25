@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Planner — TravelMate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="planner.css">
+</head>
+<body class="page-planner">
+
+  <!-- Floating hearts -->
+  <div class="hearts-container"></div>
+
+  <header class="site-header">
+    <div class="logo">TravelMate</div>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="travelmate.html">TravelMate</a>
+      <a href="planner.html">Planner</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="planner-main container">
+    <section class="intro">
+      <h1>Plan Your Perfect Trip</h1>
+      <p>Create itineraries effortlessly. Choose from ready-made templates or customize your own adventure.</p>
+    </section>
+
+    <section class="planner-grid">
+      <div class="planner-card">
+        <h2>Weekend City Break</h2>
+        <p class="meta">2 days • Easy • City highlights</p>
+        <ul>
+          <li>Day 1 — Arrive, city walk, top restaurant</li>
+          <li>Day 2 — Museum, market, depart</li>
+        </ul>
+        <div class="card-actions">
+          <a class="btn primary" href="#">Use template</a>
+        </div>
+      </div>
+
+      <div class="planner-card">
+        <h2>7-Day Road Trip</h2>
+        <p class="meta">7 days • Scenic • Family</p>
+        <ul>
+          <li>Day 1 — Start, scenic stop</li>
+          <li>Day 4 — Overnight, local food</li>
+          <li>Day 7 — End at destination</li>
+        </ul>
+        <div class="card-actions">
+          <a class="btn primary" href="#">Use template</a>
+        </div>
+      </div>
+
+      <div class="planner-card">
+        <h2>Adventure Explorer</h2>
+        <p class="meta">5+ days • Trekking • Gear checklist</p>
+        <ul>
+          <li>Check permits</li>
+          <li>Pack layered clothes</li>
+          <li>Carry first-aid kit</li>
+        </ul>
+        <div class="card-actions">
+          <a class="btn primary" href="#">Use template</a>
+        </div>
+      </div>
+
+      <div class="planner-card">
+        <h2>Romantic Getaway</h2>
+        <p class="meta">3 days • Cozy • Couples</p>
+        <ul>
+          <li>Day 1 — Spa and dinner</li>
+          <li>Day 2 — Beach & sunset</li>
+          <li>Day 3 — Leisure & depart</li>
+        </ul>
+        <div class="card-actions">
+          <a class="btn primary" href="#">Use template</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    © <span id="year"></span> TravelMate
+  </footer>
+
+  <script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Floating hearts
+  document.addEventListener("DOMContentLoaded", () => {
+    const heartsContainer = document.querySelector('.hearts-container');
+    const colors = ['💗','💜','💙','💚','💛','❤','💙'];
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = colors[Math.floor(Math.random() * colors.length)];
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (18 + Math.random() * 18) + 'px';
+      heart.style.animationDuration = (4 + Math.random() * 3) + 's';
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 8000);
+    }
+    setInterval(createHeart, 400);
+  });
+  </script>
+
+</body>
+</html>
