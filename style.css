@@ -1,0 +1,192 @@
+/* style.css — shared across pages */
+:root{
+  --purple:#6e3df5;
+  --purple-2:#9b6bff;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --glass: rgba(255,255,255,0.08);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Satisfy', cursive;
+  color:#000;
+  background-color:#faf8ff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-weight:600;
+}
+
+/* header */
+.site-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 36px;
+  background: rgba(255,255,255,0.25);
+  position:sticky; top:0; z-index:40;
+  backdrop-filter: none; /* no blur */
+}
+.logo{
+  font-weight:800;
+  color:#000;
+  font-size:28px;
+  text-shadow: 1px 1px 3px rgba(255,255,255,0.7);
+}
+.main-nav a{
+  margin-left:22px;
+  text-decoration:none;
+  color:#000;
+  font-weight:700;
+  font-size:18px;
+  text-shadow: 1px 1px 3px rgba(255,255,255,0.7);
+  transition: all 0.3s ease;
+}
+.main-nav a:hover{
+  color:var(--purple);
+  text-shadow: 0 0 10px rgba(110,61,245,0.3);
+}
+
+/* buttons */
+.btn{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:700;
+}
+.btn.primary{
+  background:linear-gradient(90deg,var(--purple),var(--purple-2));
+  color:#fff;
+  box-shadow:0 8px 24px rgba(110,61,245,0.12);
+}
+.btn.ghost{
+  background:transparent;
+  color:var(--purple);
+  border:2px solid rgba(110,61,245,0.12);
+}
+.btn.small{
+  padding:8px 12px;
+  font-size:14px;
+}
+
+/* hero (home) */
+.page-home{
+  background-image: linear-gradient(120deg, rgba(110,61,245,0.35), rgba(153,102,255,0.15)), url('https://images.pexels.com/photos/879444/pexels-photo-879444.jpeg');
+  background-size: cover;
+  background-position: center;
+  color: #000;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+.hero{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:80px 48px;
+  flex:1;
+}
+.hero-left{max-width:720px}
+.hero h1{
+  font-size:56px;
+  margin:0 0 12px;
+  font-weight:800;
+  line-height:1.02;
+  color:#000;
+}
+.lead{
+  font-size:20px;
+  opacity:0.9;
+  margin-bottom:16px;
+  font-weight:600;
+}
+.hero-right{
+  width:320px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.card{
+  background:var(--card);
+  padding:18px;
+  border-radius:14px;
+  box-shadow:0 18px 40px rgba(8,16,48,0.12);
+}
+.card.glass{
+  background:rgba(255,255,255,0.4);
+  color:#000;
+  border:1px solid rgba(255,255,255,0.6);
+}
+
+/* footer */
+.site-footer{
+  text-align:center;
+  padding:28px 10px;
+  color:#000;
+  background:transparent;
+  font-weight:600;
+}
+
+/* Floating hearts container (home only) */
+.hearts-container{
+  pointer-events:none;
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  z-index:10;
+}
+
+/* small helpers */
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 18px;
+}
+
+/* responsive */
+@media (max-width:900px){
+  .hero{flex-direction:column;padding:40px 18px;text-align:center}
+  .hero-right{width:100%}
+  .hero h1{font-size:36px}
+}
+
+.float-heart{
+  position:fixed;
+  bottom:-10vh;
+  pointer-events:none;
+  z-index:12;
+  text-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  transform: translateY(0);
+}
+/* Floating colorful hearts animation */
+.hearts-container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  bottom: -10vh;
+  opacity: 0.9;
+  animation: floatUp linear forwards;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) scale(0.6);
+    opacity: 0;
+  }
+}
