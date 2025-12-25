@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Blogs — TravelMate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="blogs.css">
+</head>
+<body class="page-blogs">
+
+  <!-- Floating hearts -->
+  <div class="hearts-container"></div>
+
+  <header class="site-header">
+    <div class="logo">TravelMate</div>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="travelmate.html">TravelMate</a>
+      <a href="planner.html">Planner</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="blogs-main container">
+    <section class="intro">
+      <h1>Travel Stories & Tips</h1>
+      <p>Explore experiences, guides, and tips from travelers and local experts to make your trips smoother and more memorable.</p>
+    </section>
+
+    <section class="blogs-grid">
+      <article class="blog-card">
+        <div class="thumb" style="background-image:url('https://images.pexels.com/photos/4340790/pexels-photo-4340790.jpeg')"></div>
+        <div class="card-body">
+          <h2>Best Beaches to Visit</h2>
+          <p class="meta">Goa • Beaches • Food</p>
+          <p>Discover serene stretches with recommended stalls and safety tips for a relaxed trip.</p>
+          <a class="readmore" href="#">Read story →</a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="thumb" style="background-image:url('https://images.pexels.com/photos/935835/pexels-photo-935835.jpeg')"></div>
+        <div class="card-body">
+          <h2>Himalayan Trekking Essentials</h2>
+          <p class="meta">Mountains • Trekking</p>
+          <p>Gear checklist and acclimatisation tips to keep your trek safe and fun.</p>
+          <a class="readmore" href="#">Read story →</a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="thumb" style="background-image:url('https://images.pexels.com/photos/2300031/pexels-photo-2300031.jpeg')"></div>
+        <div class="card-body">
+          <h2>Street Food Adventures</h2>
+          <p class="meta">Cities • Food</p>
+          <p>A guide to tasting the best local street food while staying safe and enjoying authentic flavors.</p>
+          <a class="readmore" href="#">Read story →</a>
+        </div>
+      </article>
+
+      <article class="blog-card">
+        <div class="thumb" style="background-image:url('https://images.pexels.com/photos/261187/pexels-photo-261187.jpeg')"></div>
+        <div class="card-body">
+          <h2>Weekend Getaway Ideas</h2>
+          <p class="meta">Short Trips • Nature</p>
+          <p>Curated suggestions for a refreshing weekend escape close to major cities.</p>
+          <a class="readmore" href="#">Read story →</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    © <span id="year"></span> TravelMate
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Floating hearts
+    document.addEventListener("DOMContentLoaded", () => {
+      const heartsContainer = document.querySelector('.hearts-container');
+      const colors = ['💗','💜','💙','💚','💛','❤','💙'];
+
+      function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.textContent = colors[Math.floor(Math.random() * colors.length)];
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.fontSize = (18 + Math.random() * 18) + 'px';
+        heart.style.animationDuration = (4 + Math.random() * 3) + 's';
+        heartsContainer.appendChild(heart);
+        setTimeout(() => heart.remove(), 8000);
+      }
+      setInterval(createHeart, 400);
+    });
+  </script>
+
+</body>
+</html>
