@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — TravelMate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="contact.css">
+</head>
+<body class="page-contact">
+
+  <!-- Floating hearts -->
+  <div class="hearts-container"></div>
+
+  <header class="site-header">
+    <div class="logo">TravelMate</div>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="travelmate.html">TravelMate</a>
+      <a href="planner.html">Planner</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="contact-main">
+    <div class="contact-wrapper">
+      <div class="contact-card">
+        <h1>Contact & About</h1>
+        <p class="sub">We are TravelMate — your companion for planning unforgettable trips. Reach out to us for suggestions, queries, or feedback.</p>
+
+        <h3>Team</h3>
+        <div class="team-grid">
+          <div class="member-card">
+            <img src="https://via.placeholder.com/140?text=Srijoyee" alt="Srijoyee">
+            <h2>Srijoyee Misra</h2>
+            <p class="role">Team Leader</p>
+          </div>
+          <div class="member-card">
+            <img src="https://via.placeholder.com/140?text=Somashree" alt="Somashree">
+            <h2>Somashree Thakur</h2>
+          </div>
+          <div class="member-card">
+            <img src="https://via.placeholder.com/140?text=Chandrima" alt="Chandrima">
+            <h2>Chandrima Mukherjee</h2>
+          </div>
+          <div class="member-card">
+            <img src="https://via.placeholder.com/140?text=Shreya" alt="Shreya">
+            <h2>Shreya Singh</h2>
+          </div>
+          <div class="member-card">
+            <img src="https://via.placeholder.com/140?text=Soumi" alt="Soumi">
+            <h2>Soumi Das</h2>
+          </div>
+        </div>
+
+        <form class="contact-form">
+          <label>
+            Name
+            <input type="text" placeholder="Your Name" required>
+          </label>
+          <label>
+            Email
+            <input type="email" placeholder="Your Email" required>
+          </label>
+          <label>
+            Message
+            <textarea placeholder="Your Message" required></textarea>
+          </label>
+          <button class="btn primary" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    © <span id="year"></span> TravelMate
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Floating hearts
+    document.addEventListener("DOMContentLoaded", () => {
+      const heartsContainer = document.querySelector('.hearts-container');
+      const colors = ['💗','💜','💙','💚','💛','❤','💙'];
+
+      function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.textContent = colors[Math.floor(Math.random() * colors.length)];
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.fontSize = (18 + Math.random() * 18) + 'px';
+        heart.style.animationDuration = (4 + Math.random() * 3) + 's';
+        heartsContainer.appendChild(heart);
+        setTimeout(() => heart.remove(), 8000);
+      }
+      setInterval(createHeart, 400);
+    });
+  </script>
+
+</body>
+</html>
